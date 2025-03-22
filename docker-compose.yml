@@ -1,0 +1,16 @@
+version: '3'
+services:
+  react-app:
+    build: .
+    networks:
+      card_ui_network:
+        ipv4_address: 172.18.0.2
+    ports:
+      - "3000:3000"
+
+networks:
+  card_ui_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
